@@ -127,8 +127,8 @@ PRODUCT_BOOT_JARS += \
     WfdCommon \
     qcnvitems
 
-PRODUCT_PACKAGES += \
-    DeviceParts
+#PRODUCT_PACKAGES += \
+#    DeviceParts
 
 PRODUCT_PACKAGES += \
     vndk_package
@@ -237,3 +237,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 include device/oneplus/oneplus6/keylayout/keylayout.mk
+
+PRODUCT_BOARD_PLATFORM := sdm845
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)

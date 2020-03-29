@@ -26,9 +26,6 @@ VENDOR_EXCEPTION_PATHS := oneplus \
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
@@ -38,10 +35,10 @@ AB_OTA_UPDATER := true
 
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus6/overlay/device
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus6/overlay/common
-DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
+#DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
 # get the rest of aosp stuff after ours
 $(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system_arm64.mk)
@@ -56,7 +53,7 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := omni_oneplus6
+PRODUCT_NAME := potato_oneplus6
 PRODUCT_DEVICE := oneplus6
 PRODUCT_BRAND := OnePlus
 PRODUCT_MANUFACTURER := OnePlus
@@ -67,8 +64,8 @@ PRODUCT_SYSTEM_NAME := OnePlus6
 
 VENDOR_RELEASE := 10/QKQ1.190716.003/1910270526:user/release-keys
 BUILD_FINGERPRINT := OnePlus/OnePlus6/OnePlus6:$(VENDOR_RELEASE)
-OMNI_BUILD_FINGERPRINT := OnePlus/OnePlus6/OnePlus6:$(VENDOR_RELEASE)
-OMNI_PRIVATE_BUILD_DESC := "'OnePlus6-user 10 QKQ1.190716.003 1910270526 release-keys'"
+#OMNI_BUILD_FINGERPRINT := OnePlus/OnePlus6/OnePlus6:$(VENDOR_RELEASE)
+#OMNI_PRIVATE_BUILD_DESC := "'OnePlus6-user 10 QKQ1.190716.003 1910270526 release-keys'"
 
 PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-10-01
 
